@@ -17,7 +17,6 @@ export const increment = () => {
 };
 
 export const decrement = () => {
-  console.log(newParagraph);
   return {
     type: DECREMENT
   };
