@@ -1,9 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import Counter from './components/Counter';
-import counter from './reducers';
+const server = require("./server");
+const port = process.env.PORT || 4000;
+//Heroku will be looking for an environment with PORT
+
+server.listen(port, () => {
+  console.log(`\n*** Server Running on http://localhost:${port} ***\n`);
+});
+
+import React from "react";
+import ReactDOM from "react-dom";
+
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+
+import Counter from "./components/Counter";
+import counter from "./reducers";
 
 // This line instantiates our central Redux store.
 // The `createStore` function receives the reducer
@@ -21,5 +31,5 @@ ReactDOM.render(
   <Provider store={store}>
     <Counter />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
